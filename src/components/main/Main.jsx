@@ -24,39 +24,7 @@ export const Main = () => {
       tl.fromTo('.box',{xPercent:100},{
         xPercent: 0
       })
-      tl.fromTo('.main__info',{width: '100%', y:200},{
-        width: '60%',
-        y: 0,
-        scrollTrigger: {
-          trigger: '.main',
-          scroller: '#main-container',
-          start: '-25% top',
-          end: 'top top',
-          scrub: 2,
-          markers: true
-        }
-      },0)
-      tl.fromTo('.mainPicture',{opacity:0},{
-        opacity: 1,
-        scrollTrigger: {
-          trigger: '.main',
-          scroller: '#main-container',
-          start: '-10% top',
-          end: 'top top',
-          scrub: 2,
-          markers: true
-        }
-      })
-      tl.to('.main__info p',{
-        opacity: 1,
-        scrollTrigger: {
-          trigger: '.main',
-          scroller: '#main-container',
-          start: '-10% top',
-          end: 'top top',
-          scrub: 1
-        }
-      })      
+ 
     })
     return () => ctx.revert();
   },[])

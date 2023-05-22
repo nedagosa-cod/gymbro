@@ -10,25 +10,23 @@ gsap.registerPlugin(ScrollTrigger)
 export const Header = () => {
 
   useEffect(()=>{
-    const context = gsap.context(()=> {
-      const tl = gsap.timeline()
-      tl.fromTo('.navbar',{opacity:0, scale:0},{
-        opacity:1,
-        duration: 1,
-        scale:1
+    const ctx = gsap.context(()=> {
+      gsap.fromTo('.navbar',{yPercent:-100},{
+        yPercent:0,
+        duration: 1.2
       })
-      tl.fromTo('.titles',{y:-30},{
+      gsap.fromTo('.titles',{y:50, opacity: 0},{
         y: 0,
-        duration: 1,
-      },0)
-      .fromTo('.button',{opacity: 0},{
         opacity: 1,
-        direction: 2,
-        duration: 1,
+        duration: 2
+      },0)
+      gsap.fromTo('.button',{y:-50, opacity:0},{
+        opacity: 1,
+        y: 0,
+        duration: 2
       },1)
-      
     })
-    return () => context.revert();
+    return () => ctx.revert();
   },[])
 
   return (

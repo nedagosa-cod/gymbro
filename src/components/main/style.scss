@@ -3,7 +3,7 @@
     width: 100%;
     height: 100vh;
     background: #111111;
-    &::after {
+    &::before {
         content: '';
         position: absolute;
         top: 0;

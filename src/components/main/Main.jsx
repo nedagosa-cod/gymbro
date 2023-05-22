@@ -11,7 +11,9 @@ export const Main = () => {
 
   useEffect(()=>{
     const ctx = gsap.context(()=>{
-      const tl = gsap.timeline({
+      const tl = gsap.timeline()
+      tl.fromTo('.box',{xPercent:100},{
+        xPercent: 0,
         scrollTrigger: {
           trigger: '.main',
           scroller: '#main-container',
@@ -20,9 +22,6 @@ export const Main = () => {
           scrub: 4,
           markers: true
         }
-      })
-      tl.fromTo('.box',{xPercent:100},{
-        xPercent: 0
       })
  
     })

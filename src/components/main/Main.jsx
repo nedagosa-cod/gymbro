@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react'
 import './style.scss'
+import mainPicture from '../../img/mainPicture.png'
+
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Link } from 'react-router-dom'
 gsap.registerPlugin(ScrollTrigger)
 
 export const Main = () => {
@@ -12,20 +15,63 @@ export const Main = () => {
         scrollTrigger: {
           trigger: '.main',
           scroller: '#main-container',
-          start: '-10% top',
+          start: '-20% top',
           end: '-10% top',
-          scrub: 3,
+          scrub: 4,
           markers: true
         }
       })
       tl.fromTo('.box',{xPercent:100},{
         xPercent: 0
       })
+      tl.fromTo('.main__info',{width: '100%', y:200},{
+        width: '60%',
+        y: 0,
+        scrollTrigger: {
+          trigger: '.main',
+          scroller: '#main-container',
+          start: '-25% top',
+          end: 'top top',
+          scrub: 2,
+          markers: true
+        }
+      },0)
+      tl.fromTo('.mainPicture',{opacity:0},{
+        opacity: 1,
+        scrollTrigger: {
+          trigger: '.main',
+          scroller: '#main-container',
+          start: '-10% top',
+          end: 'top top',
+          scrub: 2,
+          markers: true
+        }
+      })
+      tl.to('.main__info p',{
+        opacity: 1,
+        scrollTrigger: {
+          trigger: '.main',
+          scroller: '#main-container',
+          start: '-10% top',
+          end: 'top top',
+          scrub: 1
+        }
+      })      
     })
     return () => ctx.revert();
   },[])
   return (
     <main className='main' data-scroll-section>
+      <section className='main__info'>
+        <h1 className='main__info--h1'>Construye Tu Cuerpo Ideal</h1>
+        <p className='main__info--p'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem libero numquam fugiat debitis? Ipsa magnam nesciunt, ut consequatur dolore error. Dolore, quisquam ducimus alias est ullam aliquam suscipit beatae voluptates!
+        Quo quia ratione eveniet laborum. Iure, ipsa. Accusantium veniam illum quo aliquam consequatur neque nobis eveniet nesciunt reprehenderit voluptas asperiores animi quibusdam, repudiandae dolor eius exercitationem officiis, ipsam doloribus autem.
+        Magnam provident ab sapiente sed, placeat deserunt quasi fuga maxime corporis veritatis commodi, accusamus doloremque accusantium consequuntur atque minima non pariatur fugiat. Nam alias sunt praesentium eos fugit quam veniam.</p>
+        <Link to='/rutinas' className='button'>Rutinas</Link>
+      </section>
+      <figure className='mainPicture'>
+        <img src={mainPicture} alt="imagen producto" />
+      </figure>
       <div className='box'></div>
     </main>
   )

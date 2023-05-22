@@ -11,16 +11,18 @@ export const Header = () => {
 
   useEffect(()=>{
     const ctx = gsap.context(()=> {
-      gsap.fromTo('.navbar',{yPercent:-100},{
+      const tl = gsap.timeline()
+      // ARRANQUE SIN SCROLL
+      tl.fromTo('.navbar',{yPercent:-100},{
         yPercent:0,
         duration: 1.2
       })
-      gsap.fromTo('.titles',{y:50, opacity: 0},{
+      tl.fromTo('.titles',{y:50, opacity: 0},{
         y: 0,
         opacity: 1,
         duration: 2
       },0)
-      gsap.fromTo('.button',{y:-50, opacity:0},{
+      tl.fromTo('.button',{y:-50, opacity:0},{
         opacity: 1,
         y: 0,
         duration: 2

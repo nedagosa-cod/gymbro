@@ -2,6 +2,7 @@ import './App.css'
 
 import { Header } from './components/header/Header'
 import { Main } from './components/main/Main'
+import { Rutinas } from './components/rutinas/Rutinas'
 import useLocoScroll from './locoScroll/locoScroll'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <div id='main-container' data-scroll-container>
       <Header />
       <Main />
+      <Rutinas />
     </div>
     </>
   )
